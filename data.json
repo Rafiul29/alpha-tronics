@@ -1,0 +1,52 @@
+{
+    "products":[
+        {
+            "id":1,
+            "title":"SONY BRAVIA 48 INCH R552C LED TV",
+            "image": "https://acmartbd.com/wp-content/uploads/2015/10/SONY-BRAVIA-48-INCH-R552C-LED-TV.jpg",
+            "price": 52500.00,
+            "review": 1150,
+            "catagory": "TV"
+        },
+        {
+            "id":2,
+            "title":"IdeaPad 3i Gen 6 (15″ Intel) | 15″ laptop for remote learning and entertainment | Lenovo Bangladesh",
+            "image": "https://www.lenovo.com/medias/lenovo-laptop-ideapad-3i-15in-hero.png?context=bWFzdGVyfHJvb3R8MzM3NTg5fGltYWdlL3BuZ3xoM2MvaDExLzE0MTkxNTE3NDAxMTE4LnBuZ3w4OTg2YTg5YzQ0ZmFiZDYzOTdjZTkzNDJjNDY3MTJlODM4YTQ2ODdlMGVmZTFlYjBiODRjYWFmY2JjOTBkODNj",
+            "price": 699,
+            "review": 243,
+            "catagory": "Laptop"
+        },
+        {
+            "id":3,
+            "title":"Adata 4 GB DDR4 2666 BUS Desktop Ram",
+            "image": "https://www.startech.com.bd/image/cache/catalog/ram/adata/4gb-ddr4-2666/4gb-2666-228x228.jpg",
+            "price":  1850,
+            "review": 1243,
+            "catagory": "ram"
+        },
+        {
+            "id":4,
+            "title":"HAVIT HV-H2198d 3.5mm Headphone Black",
+            "image": "https://www.startech.com.bd/image/cache/catalog/headphone/havit/h2198d/hv-h2198d-black-228x228.jpg",
+            "price": 453,
+            "review": 896,
+            "catagory": "headphone"
+        },
+        {
+            "id":5,
+            "title":"UiiSii HM12 Deep Bass Good Treble Earphones With Pouch Bag",
+            "image": "https://static-01.daraz.com.bd/p/8e7f159eaabd68caaffb9f8934750531.jpg",
+            "price": 20,
+            "review": 453,
+            "catagory": "headphone"
+        },
+        {
+            "id":6,
+            "title": "Xiaomi Mibro C2 1.69-inch HD Screen Smart Watch",
+            "image":"https://www.startech.com.bd/image/cache/catalog/smart-watch/xiaomi/mibro-c2/mibro-c2-01-228x228.webp",
+            "price": 453,
+            "review": 897,
+            "catagory": "TV"
+        }
+    ]
+}
