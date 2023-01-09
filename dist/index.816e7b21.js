@@ -1,4 +1,8 @@
 const productsWrapper = document.querySelector(".product-wrapper");
+const addedProductWrapper = document.querySelector(".added-products");
+const cartModal = document.querySelector(".cart-modal");
+const cartClose = document.querySelector(".cart-close");
+const cartOpenbtn = document.querySelector(".cart-open-btn");
 function getProducts() {
     fetch("http://localhost:3000/products").then((res)=>{
         if (!res.ok) throw new Error("Something went wrong");
@@ -45,13 +49,48 @@ function renderProducts(products) {
             const id = e.target.dataset.id;
             //calling another fetch function
             getSingleProductData(id);
+            //cart open
+            cartModal.classList.remove("hidden");
         });
     });
 }
 function getSingleProductData(id) {
     fetch(`http://localhost:3000/products/${id}`).then((res)=>res.json()).then((data)=>renderSingleProduct(data));
 }
-function renderSingleProduct(product) {}
+function renderSingleProduct(product) {
+    const html = `
+        <div class="added-product grid grid-cols-4 border-b pb-2 gap-2 overflow-hidden">
+            <div class="img overflow-hidden w-20 rounded flex justify-center items-center  ">
+              <img src=${product.image} alt=${product.title}
+              class="block w-full rounded"
+              >
+            </div>
+            <div class="texts flex flex-col gap-2 col-span-2">
+              <h4 class="font-semibold">=${product.title}</h4>
+              <div class="flex justify-between items-center">
+                <p class="price text-rose-500 font-bold">${currencyFormatter(product.price)}</p>
+                <p class="font-semibold text-xl overflow-hidden flex cursor-pointer b">
+                  <span class="bg-sky-500 text-sky-50 px-2 cursor-pointer active:bg-gray-700">-</span>
+                  <span class="px-2">1</span>
+                  <span class="bg-sky-500 text-sky-50 px-2 cursor-pointer active:bg-gray-700">+</span>
+                </p>
+              </div>
+            </div>
+            <button class="remove-item justify-self-end hover:text-rose-500">
+              <i class="fa-regular fa-trash-can "></i>
+            </button>
+          </div>
+        `;
+    addedProductWrapper.insertAdjacentHTML("afterbegin", html);
+}
+// cart close event
+cartClose.addEventListener("click", function() {
+    cartModal.classList.add("hidden");
+});
+//cart open from cart open btn
+cartOpenbtn.addEventListener("click", function() {
+    cartModal.classList.remove("hidden");
+});
 // error method
 function renderError(errMsg) {
     productsWrapper.innerHTML = "";

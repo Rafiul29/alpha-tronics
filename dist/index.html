@@ -1,48 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>alpha-tronics</title>
-    <link href="/index.61d3354a.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-    <script src="/index.816e7b21.js" defer=""></script>
-  </head>
-  <body class="bg-gray-100 text-gray-600 text-lg font-normal">
-    <!-- Navbar -->
-    <header>
-      <nav class="container mx-auto py-5 flex justify-between items-center border-b">
-        <h2 class="text-3xl lowercase italic font-bold">
-          Alpha-<span class="text-rose-500">Tronics</span>
-        </h2>
-        <ul class="flex gap-5">
-          <li><a class="hover:text-rose-500" href="#">Home</a></li>
-          <li><a class="hover:text-rose-500" href="#">Categories</a></li>
-          <li><a class="hover:text-rose-500" href="#">Shop</a></li>
-          <li><a class="hover:text-rose-500" href="#">About</a></li>
-          <li><a class="hover:text-rose-500" href="#">Support</a></li>
-        </ul>
-        <div class="flex gap-5">
-          <a class="bg-rose-500 text-white px-5 py-2 rounded-full font-semibold" href="#">Subscribe</a>
-          <button class="relative">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span class="cart-counter absolute -top-[2.5] -right-4 text-x5 bg-rose-600 h-6 w-6 rounded-full flex justify-center items-center font-medium text-rose-50">6</span>
-          </button>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alpha-tronics</title>
+  <link href="/index.61d3354a.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+  <script src="/index.816e7b21.js" defer=""></script>
+</head>
+
+<body class="bg-gray-100 text-gray-600 text-lg font-normal">
+  <!-- Navbar -->
+  <header>
+    <nav class="container mx-auto py-5 flex justify-between items-center border-b">
+      <h2 class="text-3xl lowercase italic font-bold">
+        Alpha-<span class="text-rose-500">Tronics</span>
+      </h2>
+      <ul class="flex gap-5">
+        <li><a class="hover:text-rose-500" href="#">Home</a></li>
+        <li><a class="hover:text-rose-500" href="#">Categories</a></li>
+        <li><a class="hover:text-rose-500" href="#">Shop</a></li>
+        <li><a class="hover:text-rose-500" href="#">About</a></li>
+        <li><a class="hover:text-rose-500" href="#">Support</a></li>
+      </ul>
+      <div class="flex gap-5">
+        <a class="bg-rose-500 text-white px-5 py-2 rounded-full font-semibold" href="#">Subscribe</a>
+        <button class="relative cart-open-btn">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-counter absolute -top-[2.5] -right-4 text-x5 bg-rose-600 h-6 w-6 rounded-full flex justify-center items-center font-medium text-rose-50">6</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Products -->
+    <section id="products" class="container mx-auto py-10 ">
+      <h2 class="text-4xl text-center mb-10 font-bold uppercase tracking-widest">New arrivals</h2>
+      <div class="product-wrapper flex flex-wrap gap-10 justify-center items-start">
+        <!-- single product stay here -->
+      </div>
+    </section>
+
+    <!-- single Product modal -->
+    <div class="cart-modal  w-3/5 lg:w-2/5 h-screen bg-white/75 fixed top-0 right-0 backdrop-blur-xl shadow-2xl border-l-2 border-white select-none p-5 py-10 hidden">
+
+      <div class="flex flex-col gap-10">
+        <div class="flex justify-between items-center">
+          <h3 class="cart-headline text-2xl font-bold uppercase tracking-widest">Your cart</h3>
+          <span class=" cart-close cursor-pointer text-xl text-rose-500">
+            <i class="fa-solid fa-xmark "></i>
+          </span>
         </div>
-      </nav>
-    </header>
+  
+        <div class="added-products flex flex-col gap-5 ">
+          
+        </div>
+      </div>
+    </div>
+  </main>
 
-    <main>
-      <!-- Products -->
-      <section id="products" class="container mx-auto py-10 ">
-         <h2 class="text-4xl text-center mb-10 font-bold uppercase tracking-widest">New arrivals</h2>
-         <div class="product-wrapper flex flex-wrap gap-10 justify-center items-start">
-         <!-- single product stay here -->
-         </div>
-      </section>
-    </main>
-    <!--  -->
-  <script src="/alpha-tronics.59712999.js"></script></body>
+<script src="/alpha-tronics.59712999.js"></script></body>
+
 </html>
