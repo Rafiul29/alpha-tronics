@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>alpha-tronics</title>
-    <link href="./index.css" rel="stylesheet">
-</head>
-<body>
-fff
-    
-</body>
+    <link href="./index.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-600 text-lg font-normal">
+    <!-- Navbar -->
+    <header>
+      <nav
+        class="container mx-auto py-5 flex justify-between items-center border-b"
+      >
+        <h2 class="text-3xl lowercase italic font-bold">
+          Alpha-<span class="text-rose-500">Tronics</span>
+        </h2>
+        <ul class="flex gap-5">
+          <li><a class="hover:text-rose-500" href="#">Home</a></li>
+          <li><a class="hover:text-rose-500" href="#">Categories</a></li>
+          <li><a class="hover:text-rose-500" href="#">Shop</a></li>
+          <li><a class="hover:text-rose-500" href="#">About</a></li>
+          <li><a class="hover:text-rose-500" href="#">Support</a></li>
+        </ul>
+        <div class="flex gap-5">
+          <a
+            class="bg-rose-500 text-white px-5 py-2 rounded-full font-semibold"
+            href="#"
+            >Subscribe</a
+          >
+          <button class="relative">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span
+              class="cart-counter absolute -top-[2.5] -right-4 text-x5 bg-rose-600 h-6 w-6 rounded-full flex justify-center items-center font-medium text-rose-50"
+              >6</span
+            >
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Products -->
+      <section id="products" class="container mx-auto py-10 ">
+         <h2 class="text-4xl text-center mb-10 font-bold uppercase tracking-widest">New arrivals</h2>
+         <div class="product-wrapper ">
+          <div class="products overflow-hidden w-96 h-auto bg-white/75 backdrop-blur-lg rounded-xl shadow-lg shadow-gray-200 ">
+            <div class="product-img h-70 overflow-hidden flex justify-center items-center">
+              <img src="https://static-01.daraz.com.bd/p/8e7f159eaabd68caaffb9f8934750531.jpg" 
+              class="w-full block"
+              alt="">
+            </div>
+            <div class="product-texts p-5 flex flex-col gap-1">
+            <p class="text-sm uppercase font-bold tracking-widest text-sky-500">Smart watches</p>
+            <h1 class="text-2xl font-semibold truncate ">Apple watch series 6 </h1>
+            <p class="text-xl text-rose-500">USD . $56 <span class="text-sm text-gray-600">(223 reviews)</span></p>
+            <button class="bg-sky-500 self-start text-sky-50 p-2 px-5 rounded shadow-lg shadow-sky-200 font-semibold hover:shadow-rose-200 hover:bg-rose-500 hover:text-rose duration-300">Add to Cart</button>
+            </div>
+          </div>
+         </div>
+      </section>
+    </main>
+    <!--  -->
+  </body>
 </html>
