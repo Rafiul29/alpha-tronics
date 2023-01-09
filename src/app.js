@@ -3,6 +3,9 @@ const addedProductWrapper=document.querySelector(".added-products")
 const cartModal=document.querySelector(".cart-modal")
 const cartClose= document.querySelector(".cart-close")
 const cartOpenbtn=document.querySelector(".cart-open-btn")
+const itemHoldCount=document.querySelector(".item-count")
+
+
 
 function getProducts() {
     fetch('http://localhost:3000/products')
@@ -10,7 +13,11 @@ function getProducts() {
             if (!res.ok) throw new Error("Something went wrong")
             return res.json();
         })
-        .then(data => renderProducts(data))
+        .then(data =>{
+          renderProducts(data)
+          loadingLocalData(data)
+          
+        })
         .catch(err => renderError(err.message))
 }
 
@@ -52,6 +59,7 @@ function renderProducts(products) {
 
     //add to cart event
     const addToCartsBtns = document.querySelectorAll(".add-to-cart-btn")
+ 
     addToCartsBtns.forEach(btn => {
         btn.addEventListener("click", function (e) {
             const id = e.target.dataset.id;
@@ -67,9 +75,47 @@ function renderProducts(products) {
 function getSingleProductData(id) {
     fetch(`http://localhost:3000/products/${id}`)
         .then(res => res.json())
-        .then(data => renderSingleProduct(data))
-
+        .then(data =>{
+          renderSingleProduct(data)
+          saveInLocalStorage(data)
+        })
 }
+function saveInLocalStorage(product){
+  //get data from localstorage
+  const greetingLocalData=JSON.parse(localStorage.getItem(`item-${product.id}`))
+  //if data exists ,return null
+  if(greetingLocalData) return null
+  //if not exist ,set 
+  if(!greetingLocalData){
+    localStorage.setItem(`item-${product.id}`,JSON.stringify(product))
+  }
+}
+
+function loadingLocalData(products){
+  let localData=[]
+
+  for(let i=0; i<=products.length; i++){
+    const dataParsing=JSON.parse(localStorage.getItem(`item-${i}`));
+    if(dataParsing) localData.push(dataParsing);
+  }
+
+  //render local Data
+  localData.forEach((product)=>{
+    renderSingleProduct(product)
+  })
+
+
+  //render item count
+  const itemCount=localData.length;
+
+  itemHoldCount.textContent=itemCount
+}
+
+
+
+
+
+
 
 function renderSingleProduct(product) {
     const html = `
@@ -90,7 +136,7 @@ function renderSingleProduct(product) {
                 </p>
               </div>
             </div>
-            <button class="remove-item justify-self-end hover:text-rose-500">
+            <button onClick="removeItem(${product.id})" class="remove-btn justify-self-end hover:text-rose-500">
               <i class="fa-regular fa-trash-can "></i>
             </button>
           </div>
@@ -98,7 +144,10 @@ function renderSingleProduct(product) {
         addedProductWrapper.insertAdjacentHTML("afterbegin",html)
 }
 
-// cart close event
+function removeItem(id){
+localStorage.removeItem(`item-${id}`)
+}
+
 cartClose.addEventListener("click",function(){
  cartModal.classList.add("hidden")
 })
@@ -107,6 +156,7 @@ cartClose.addEventListener("click",function(){
 //cart open from cart open btn
 cartOpenbtn.addEventListener("click",function(){
     cartModal.classList.remove("hidden")
+    
 })
 
 // error method
