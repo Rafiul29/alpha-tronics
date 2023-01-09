@@ -1,27 +1,20 @@
-const productsWrapper=document.querySelector(".product-wrapper")
-
+const productsWrapper = document.querySelector(".product-wrapper");
 function getProducts() {
-    fetch('http://localhost:3000/products')
-        .then(res => {
-            if (!res.ok) throw new Error("Something went wrong")
-            return res.json();
-        })
-        .then(data => renderProducts(data))
-        .catch(err => renderError(err.message))
+    fetch("http://localhost:3000/products").then((res)=>{
+        if (!res.ok) throw new Error("Something went wrong");
+        return res.json();
+    }).then((data)=>renderProducts(data)).catch((err)=>renderError(err.message));
 }
-
 getProducts();
-
-function currencyFormatter(price){
-  return price.toLocaleString("en-us",{
-    style:"currency",
-    currency:"USD",
-  })
+function currencyFormatter(price) {
+    return price.toLocaleString("en-us", {
+        style: "currency",
+        currency: "USD"
+    });
 }
-
 function renderProducts(products) {
-    products.forEach(product => {
-     const html = `
+    products.forEach((product)=>{
+        const html = `
          <div class="products overflow-hidden w-96 h-auto bg-white/75 backdrop-blur-lg rounded-xl shadow-lg shadow-gray-200 ">
         <div class="product-img h-60 overflow-hidden flex justify-center items-center">
           <img src=${product.image}
@@ -43,37 +36,29 @@ function renderProducts(products) {
         </div>
       </div>
     `;
-    productsWrapper.insertAdjacentHTML("afterbegin",html)
+        productsWrapper.insertAdjacentHTML("afterbegin", html);
     });
-
     //add to cart event
-    const addToCartsBtns=document.querySelectorAll(".add-to-cart-btn") 
-    addToCartsBtns.forEach(btn=>{
-        btn.addEventListener("click",function(e){
-         const id =e.target.dataset.id;
-         //calling another fetch function
-         getSingleProductData(id)
-        })
-    })
-    
+    const addToCartsBtns = document.querySelectorAll(".add-to-cart-btn");
+    addToCartsBtns.forEach((btn)=>{
+        btn.addEventListener("click", function(e) {
+            const id = e.target.dataset.id;
+            //calling another fetch function
+            getSingleProductData(id);
+        });
+    });
 }
-
-function getSingleProductData(id){
-        fetch(`http://localhost:3000/products/${id}`)
-        .then(res=>res.json())
-        .then(data=>renderSingleProduct(data))
-
+function getSingleProductData(id) {
+    fetch(`http://localhost:3000/products/${id}`).then((res)=>res.json()).then((data)=>renderSingleProduct(data));
 }
-
- function renderSingleProduct(product){
-
-}
-
+function renderSingleProduct(product) {}
 // error method
 function renderError(errMsg) {
-    productsWrapper.innerHTML="";
-    const html=`
+    productsWrapper.innerHTML = "";
+    const html = `
     <p>${errMsg}</p>
     `;
-    productsWrapper.insertAdjacentHTML("afterbegin",html);
+    productsWrapper.insertAdjacentHTML("afterbegin", html);
 }
+
+//# sourceMappingURL=index.816e7b21.js.map
