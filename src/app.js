@@ -137,7 +137,7 @@ function renderSingleProduct(product) {
                 </p>
               </div>
             </div>
-            <button onClick="removeItem(${product.id})" class="remove-btn justify-self-end hover:text-rose-500">
+            <button onClick="removeItem(${product.id})" class=  "remove-btn justify-self-end hover:text-rose-500">
               <i class="fa-regular fa-trash-can "></i>
             </button>
           </div>
@@ -146,8 +146,11 @@ function renderSingleProduct(product) {
 }
 
 function removeItem(id){
-localStorage.removeItem(`item-${id}`)
-addedProductWrapper.classList.add("hidden")
+
+const data=JSON.parse(localStorage.getItem(`item-${id}`))
+if(data.id===id){
+  localStorage.removeItem(`item-${id}`)
+}
 
 }
 
@@ -162,10 +165,10 @@ cartOpenbtn.addEventListener("click",function(){
     
 })
 
-const bodyTag=document.getElementsByTagName("body")
-bodyTag.addEventListener("click",function(){
-  cartModal.classList.add("hidden")
-})
+// const bodyTag=document.getElementsByTagName("body")
+// bodyTag.addEventListener("click",function(){
+//   cartModal.classList.add("hidden")
+// })
 // error method
 function renderError(errMsg) {
     productsWrapper.innerHTML = "";
