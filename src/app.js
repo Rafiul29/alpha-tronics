@@ -7,6 +7,7 @@ const itemHoldCount=document.querySelector(".item-count")
 
 
 
+
 function getProducts() {
     fetch('http://localhost:3000/products')
         .then(res => {
@@ -146,6 +147,8 @@ function renderSingleProduct(product) {
 
 function removeItem(id){
 localStorage.removeItem(`item-${id}`)
+addedProductWrapper.classList.add("hidden")
+
 }
 
 cartClose.addEventListener("click",function(){
@@ -155,10 +158,14 @@ cartClose.addEventListener("click",function(){
 
 //cart open from cart open btn
 cartOpenbtn.addEventListener("click",function(){
-    cartModal.classList.remove("hidden")
+  cartModal.classList.remove("hidden")
     
 })
 
+const bodyTag=document.getElementsByTagName("body")
+bodyTag.addEventListener("click",function(){
+  cartModal.classList.add("hidden")
+})
 // error method
 function renderError(errMsg) {
     productsWrapper.innerHTML = "";
